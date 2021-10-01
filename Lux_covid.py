@@ -59,3 +59,6 @@ for col in cols:
 aft_vac_camp = covid_data[covid_data['Month'] > '2021-04']
 for col in cols:
     print('Correlation of ', col, 'with the Positive cases is', aft_vac_camp[col].corr(aft_vac_camp['Number of positives']))
+
+    # Inference
+    

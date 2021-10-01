@@ -15,7 +15,7 @@ The United States Social Security Administration (SSA) has made available data o
 through the present.
 '''
 
-names = pd.read_csv('/Users/mac/Desktop/pydata-book-2nd-edition/datasets/babynames/names/yob1880.txt',
+names = pd.read_csv('/Users/mac/PycharmProjects/Mbajwa_1/Data_Analysis/babynames/names/yob1880.txt',
                     names=['name', 'sex', 'births'])
 names['year'] = 1880
 
@@ -26,7 +26,7 @@ DataFrame and further to add a year field. """
 years = range(1880, 2021)
 
 for year in years:
-    path = '/Users/mac/Desktop/pydata-book-2nd-edition/datasets/babynames/names/yob{0}.txt'.format(year)
+    path = '/Users/mac/PycharmProjects/Mbajwa_1/Data_Analysis/babynames/names/yob{0}.txt'.format(year)
     new_names = pd.read_csv(path, names=['name', 'sex', 'births'])
     new_names['year'] = year
     names = pd.concat([names, new_names], ignore_index=True)

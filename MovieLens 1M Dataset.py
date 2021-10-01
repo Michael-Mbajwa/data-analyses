@@ -16,15 +16,16 @@ The MovieLens 1M dataset contains 1 million ratings collected from 6,000 users o
 # If you study the result from, you'll notice the data does not have it's own column names hences it's using
 # the first row as a column name. We will solve this problem.
 mnames = ['movie_id', 'title', 'genres']
-movies_data = '/Users/mac/Desktop/pydata-book-2nd-edition/datasets/movielens/movies.dat'
+movies_data = '/Users/mac/PycharmProjects/Mbajwa_1/Data_Analysis/movielens/movie.dat'
 movies = pd.read_table(movies_data, sep='::', engine='python', names=mnames)
+print(movies)
 
 unames = ['user_id', 'gender', 'age', 'occupation', 'zip']
-users_data = '/Users/mac/Desktop/pydata-book-2nd-edition/datasets/movielens/users.dat'
+users_data = '/Users/mac/PycharmProjects/Mbajwa_1/Data_Analysis/movielens/users.dat'
 users = pd.read_table(users_data, sep='::', engine='python', names=unames)
 
 rnames = ['user_id', 'movie_id', 'rating', 'timestamp']
-ratings_data = '/Users/mac/Desktop/pydata-book-2nd-edition/datasets/movielens/ratings.dat'
+ratings_data = '/Users/mac/PycharmProjects/Mbajwa_1/Data_Analysis/movielens/ratings.dat'
 ratings = pd.read_table(ratings_data, engine='python', sep='::', names=rnames)
 
 # Since this data is spread across different tables, we begin merging

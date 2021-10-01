@@ -15,9 +15,9 @@ The US Federal Election Commission publishes data on contributions to political 
 names, occupation and employer, address, and contribution amount. An interesting dataset is from the 2012 
 US presidential election. 
 """
-path = '/Users/mac/Desktop/pydata-book-2nd-edition/datasets/fec/P00000001-ALL.csv'
+path = '/Users/mac/PycharmProjects/Mbajwa_1/Python Cookbook/fec/P00000001-ALL.csv'
 fec = pd.read_csv(path, low_memory=False)
-
+print(fec)
 # Let's view a sample data
 rand_sample = fec.iloc[np.random.randint(1000, 1000001)]
 
@@ -88,3 +88,4 @@ mrbo_grouped2 = fec_mrbo.groupby('cand_nm').apply(get_top_amount, 'contbr_employ
 # Donation statistics by state
 grouped = fec_mrbo.groupby(['cand_nm', 'contbr_st'])
 totals = grouped.sum()['contb_receipt_amt'].unstack('cand_nm').fillna(0)
+print(totals)

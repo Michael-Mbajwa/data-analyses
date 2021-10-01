@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 """In 2011, URL shortening service Bitly partnered with the US government website USA.gov to provide a feed of 
 anonymous data gathered from users who shorten links ending with .gov or .mil. """
 
-path = '/Users/mac/Desktop/pydata-book-2nd-edition/datasets/bitly_usagov/example.txt'
+path = '/Users/mac/PycharmProjects/Mbajwa_1/Data_Analysis/bitly_usagov/example.txt'
 
 with open(path) as f:
     x = f.readlines()
