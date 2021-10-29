@@ -1,10 +1,6 @@
 import pandas as pd
 import numpy as np
-import pprint
-from skimpy import skim
-from deep_translator import GoogleTranslator as gtr
-from matplotlib import pyplot as plt
-import datetime
+from deep_translator import GoogleTranslator as Gtr
 from dateutil.relativedelta import relativedelta
 
 """
@@ -27,7 +23,7 @@ data_types = covid_data.dtypes
 
 
 # Since the data was downloaded in french language, I will Translate Column Names from French to English and print
-col_names_en = {x: gtr('fr', 'en').translate(x) for x in covid_data.columns}
+col_names_en = {x: Gtr('fr', 'en').translate(x) for x in covid_data.columns}
 
 # Looking at the translated names, there are two names we would have to manually edit
 col_names_en['[1.NbMorts]'] = 'Cumulative Number of deaths'
@@ -58,18 +54,20 @@ mw_average = covid_data.groupby(['Month']).mean()[['Intensive care', 'Daily numb
                                                    'positivity_rate']]
 
 # Calculate correlation of Hospitalization, Intensive care, and Death with the Positive cases
-'''cols = ['Normal care', 'Intensive care', 'Daily number of deaths']
+cols = ['Normal care', 'Intensive care', 'Daily number of deaths']
 for col in cols:
     print('Correlation of', col, 'with the Positive cases is', covid_data[col].corr(covid_data['Number of positives']))
 
 # Recalculate this correlation before and after the starting of general vaccination campaign (April 2021)
 b4_vac_camp = covid_data[covid_data['Month'] <= '2021-04']
 for col in cols:
-    print('Correlation of', col, 'with the Positive cases is', b4_vac_camp[col].corr(b4_vac_camp['Number of positives']))
+    print('Correlation of', col, 'with the Positive cases is',
+          b4_vac_camp[col].corr(b4_vac_camp['Number of positives']))
 
 aft_vac_camp = covid_data[covid_data['Month'] > '2021-04']
 for col in cols:
-    print('Correlation of', col, 'with the Positive cases is', aft_vac_camp[col].corr(aft_vac_camp['Number of positives']))'''
+    print('Correlation of', col, 'with the Positive cases is',
+          aft_vac_camp[col].corr(aft_vac_camp['Number of positives']))
 
 
 vacc_url = 'https://data.public.lu/en/datasets/r/a3c13d63-6e1d-4bd6-9ba4-2dba5cf9ad5b'
@@ -81,7 +79,7 @@ dtyp_vacc = vacc_data.dtypes  # The datatypes are appropraite
 vacc_descrp = vacc_data.describe()
 
 # Translate column names from french to english
-column_names_en = {y: gtr('fr', 'en').translate(y) for y in vacc_data.columns}
+column_names_en = {y: Gtr('fr', 'en').translate(y) for y in vacc_data.columns}
 # Manually edit some names I am not comfortable with
 column_names_en['Date'] = 'Date'
 vacc_data = vacc_data.rename(columns=column_names_en)
@@ -121,12 +119,12 @@ print('Mean positivity rate after second dose is', data_aft_immunity['positivity
 # Before Immunity kicks in
 var = ['positivity_rate', 'Number of positives']
 for v in var:
-    print('Correlation of', v, 'with total number of doses', data_b4_immunity[v].corr(data_b4_immunity['Total number of doses']))
+    print('Correlation of', v, 'with total number of doses',
+          data_b4_immunity[v].corr(data_b4_immunity['Total number of doses']))
 
 # After Immunity kicks in
 for v in var:
-    print('Correlation of', v, 'with total number of doses', data_aft_immunity[v].corr(data_aft_immunity['Total number of doses']))
+    print('Correlation of', v, 'with total number of doses',
+          data_aft_immunity[v].corr(data_aft_immunity['Total number of doses']))
 
-# Although both periods have negative correlations which goes to show steps taken to curb the spread of the virus
-# were proving effective, you would notice the negative correlation of number of doses to positivity rate became
-# significantly higher when immunity began.
+
