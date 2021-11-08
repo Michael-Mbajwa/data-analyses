@@ -15,7 +15,7 @@ The US Federal Election Commission publishes data on contributions to political 
 names, occupation and employer, address, and contribution amount. An interesting dataset is from the 2012 
 US presidential election. 
 """
-path = '/Users/mac/PycharmProjects/Mbajwa_1/Python Cookbook/fec/P00000001-ALL.csv'
+path = '/Files/fec/P00000001-ALL.csv'
 fec = pd.read_csv(path, low_memory=False)
 print(fec)
 # Let's view a sample data

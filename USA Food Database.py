@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 """
 The US Department of Agriculture makes available a database of food nutrient information. 
 """
-path = '/Users/mac/PycharmProjects/Mbajwa_1/Data_Analysis/usda_food/database.json'
+path = '/Files/usda_food/database.json'
 
 with open(path) as usa_food:
     db = json.load(usa_food)

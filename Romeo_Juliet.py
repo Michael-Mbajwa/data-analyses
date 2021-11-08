@@ -1,6 +1,8 @@
 from urllib.request import urlopen
 import pprint
 
+# I have attempted an analysis of a dataset without using any python module (excluding url open)
+
 # load the play "Romeo and Juliet" by William Shakespeare into python
 with urlopen("https://gist.githubusercontent.com/romba050/a9e23b3ba49423489125deb380d192c8/raw/"
              "a22ffa158028444940628d13003b866207cdfc52/Romeo_and_Juliet.txt") as r_and_j_file:

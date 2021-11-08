@@ -15,7 +15,7 @@ The United States Social Security Administration (SSA) has made available data o
 through the present.
 '''
 
-names = pd.read_csv('/Users/mac/PycharmProjects/Mbajwa_1/Data_Analysis/babynames/names/yob1880.txt',
+names = pd.read_csv('/Files/babynames/names/yob1880.txt',
                     names=['name', 'sex', 'births'])
 names['year'] = 1880
 
