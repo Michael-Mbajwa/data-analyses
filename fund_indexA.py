@@ -1,6 +1,12 @@
 import pandas as pd
 
 
+"""
+For this data cleaning exercise, I am working on an xlsx file. This xlsx file read data from the Morningstar API. The 
+main sheet - sheet1 contains series of dataframes on it (with different ranges of columns). Each dataframe contains a 
+unique FundID. The task is to read the entire sheet, identify the different pandas dataframes (based on unique FundID) 
+and merge all the dataframes into one. Save the final result as an excel file.
+"""
 # dates = pd.date_range(start="2002", end=str(datetime.date.today().year), freq='Q')
 file = pd.read_excel("/Users/mac/Downloads/example 2.xlsx")
 
@@ -52,4 +58,4 @@ part_2 = part_2[cols]
 
 # Concatenate the two parts and return output as an excel file
 final = pd.concat([part_1, part_2], axis=1)
-final.to_excel("/Users/mac/Downloads/output.xlsx")
+# final.to_excel("/Users/mac/Downloads/output.xlsx")

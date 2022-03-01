@@ -1,7 +1,11 @@
 import pandas as pd
 
 
-# Load file 1
+"""
+Using the output from fund_indexA.py, and another file containing stock scores for each companyID from 2002 to 2021,
+compute the weighted_average of fund per quarter.
+"""
+# Load file 1, the output from fund_indexA.py
 file_1 = pd.read_excel("/Users/mac/Downloads/output.xlsx")
 file_1 = file_1.iloc[:, 1:]  # Duplication of index from excel file so I remove it
 file_1 = pd.melt(file_1, ['FundID', 'CompanyID', 'Name'], var_name="QDate")  # Transform the dataframe to a long format
