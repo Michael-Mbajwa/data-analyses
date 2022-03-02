@@ -1,6 +1,5 @@
 import pandas as pd
 
-
 """
 For this data cleaning exercise, I am working on an xlsx file. This xlsx file read data from the Morningstar API. The 
 main sheet - sheet1 contains series of dataframes on it (with different ranges of columns). Each dataframe contains a 
@@ -36,7 +35,6 @@ for fund_id in fund_ids:
         temp = temp[1:]
         temp.columns = new_header
         temp.rename(columns={fund_id: "FundID"}, inplace=True)
-
 
         temp.columns._data[1] = "CompanyID"  # Change the column name of the second column
         temp.columns = temp.columns.fillna('drop')  # Change all na column names to drop
